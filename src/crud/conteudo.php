@@ -1,7 +1,7 @@
 <div class="container" method='POST'>
             <h1> Dashboard ... </h1>
             <div class='row'>
-            <?php include_once('src/crud/busca.php'); ?>
+            <?php include_once('src/crud/show.php'); ?>
                 <table class="table table-dark">
                     <thead>
                         <tr>
@@ -18,16 +18,24 @@
                     <tbody>
                         <?php foreach($pessoa->fetchAll(PDO::FETCH_ASSOC) as $data){ ?>
                             <tr>
-                                <th scope="row"> <?php echo $data['id'] ?> </th>
-                                <td> <?php echo $data['nome'] ?> </td>
-                                <td> <?php echo $data['apelido']?> </td>
-                                <td> <?php echo $data['email']?> </td>
-                                <td> <?php echo $data['endereco']?> </td>
-                                <td> <?php echo $data['cidade']?> </td>
-                                <td> <?php echo $data['estado']?> </td>
+                                <th scope="row"> <?= $data['id'] ?> </th>
+                                <td> <?= $data['nome'] ?> </td>
+                                <td> <?= $data['apelido']?> </td>
+                                <td> <?= $data['email']?> </td>
+                                <td> <?= $data['endereco']?> </td>
+                                <td> <?= $data['cidade']?> </td>
+                                <td> <?= $data['estado']?> </td>
                                 <td> 
-                                    <a href="src/crud/delete.php?id=<?php echo $data['id']; ?>" type="submit" class="btn btn-danger">Deletar</a>
-                                    <a href="src/crud/edit.php" type="submit" class="btn btn-warning">Editar</a>
+                                    <div class="btn-group" role="group" aria-label="Exemplo básico">
+                                        <form action="src/crud/delete.php" method="POST">
+                                        <input type="hidden" name="id" value="<?= $data['id'] ?>">
+                                        <button type="submit" class="btn btn-danger">Deletar</button>
+                                        </form>
+                                        <form action="src/formedit.php" method="POST">
+                                        <input type="hidden" name="id" value="<?= $data['id'] ?>">
+                                        <button type="submit" class="btn btn-warning">Editar</button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         <?php } ?>

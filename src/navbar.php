@@ -16,9 +16,9 @@
         <div class="collapse navbar-collapse" id="navbarsDefault">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="http://php.rm/php-iniciante/project/">Dashboard</a>
+                    <a class="nav-link" href="/">Dashboard</a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="http://php.rm/php-iniciante/project/src/form.php">Create</a></li>
+                <li class="nav-item"><a class="nav-link" href="/src/form.php">Create</a></li>
             </ul>
         </div>
 </nav>

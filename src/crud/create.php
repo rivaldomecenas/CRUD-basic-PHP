@@ -30,4 +30,10 @@ $insert->bindValue(':endereco', $dados['endereco'], PDO::PARAM_STR);
 $insert->bindValue(':cidade', $dados['cidade'], PDO::PARAM_STR);
 $insert->bindValue(':estado', $dados['estado'], PDO::PARAM_STR);
 
-print $insert->execute();
+$result = $insert->execute();
+
+if ($result) {
+    header('Location: /src/form.php');
+}
+
+?>
