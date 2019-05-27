@@ -1,4 +1,6 @@
 <?php 
+session_start();
+$dados = $_POST;
 
 include_once('dbconnect.php');
 
@@ -16,8 +18,6 @@ alterado_em datetime
 );
 */
 
-$dados = $_POST;
-
 $sql = 'INSERT INTO pessoa(nome, apelido, email, endereco, cidade, estado, criado_em, alterado_em) 
 VALUE (:nome, :apelido, :email, :endereco, :cidade, :estado, NOW(), NOW())';
 
@@ -32,8 +32,17 @@ $insert->bindValue(':estado', $dados['estado'], PDO::PARAM_STR);
 
 $result = $insert->execute();
 
-if ($result) {
-    header('Location: /src/form.php');
+if ($result) 
+{
+    $_SESSION['alert'] = 
+    [
+        'type' => 'success',
+        'message' => 'Usuário criado com sucesso!'
+    ];
+    header("Location: /");
 }
 
 ?>
+
+
+

@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 include_once('dbconnect.php');
 
@@ -30,6 +31,11 @@ $result = $update->execute();
 
 if ($result) 
 {
+    $_SESSION['alert'] = 
+    [
+        'type' => 'warning',
+        'message' => 'Usuário editado com sucesso!'
+    ];
      header('Location: /');
 }
 ?>

@@ -3,7 +3,10 @@ include_once('navbar.php');
 
 include_once('crud/search.php'); 
 
-foreach($pessoa->fetchAll(PDO::FETCH_ASSOC) as $data){
+//foreach($pessoa->fetchAll(PDO::FETCH_ASSOC) as $data){
+$result = $pessoa->fetchAll(PDO::FETCH_ASSOC);
+if($result == true){
+$data = $result[0];
 ?>
 <form action="crud/edit.php" method="POST" class="form container-fluid">
     <h3>Editar membro </h3>
@@ -35,5 +38,11 @@ foreach($pessoa->fetchAll(PDO::FETCH_ASSOC) as $data){
     </div>
         <button type="submit" class="btn btn-dark">Salvar</button>
 </form>
-
-<?php } ?>
+    <?php
+    } 
+    else
+    {?>
+    <div class="alert alert-danger" role="alert">
+    Usuário não existente!
+    </div>
+    <?php } ?>
