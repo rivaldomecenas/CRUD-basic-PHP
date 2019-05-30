@@ -8,7 +8,7 @@ $result = $pessoa->fetchAll(PDO::FETCH_ASSOC);
 if($result == true){
 $data = $result[0];
 ?>
-<form action="crud/edit.php" method="POST" class="form container-fluid">
+<form action="crud/edit.php" method="POST" class="form container-fluid col-sm-offset-1 col-sm-8">
     <h3>Editar membro </h3>
     <hr>
     <input type="hidden" name="id" value="<?= $data['id'] ?>">
@@ -40,9 +40,4 @@ $data = $result[0];
 </form>
     <?php
     } 
-    else
-    {?>
-    <div class="alert alert-danger" role="alert">
-    Usuário não existente!
-    </div>
-    <?php } ?>
+    ?>

@@ -2,6 +2,8 @@
 session_start();
 
 include_once('dbconnect.php');
+include_once('errors.php');
+
 
 $dados = $_POST;
 
@@ -36,6 +38,6 @@ if ($result)
         'type' => 'warning',
         'message' => 'Usuário editado com sucesso!'
     ];
-     header('Location: /');
+    header('Location: /');
 }
 ?>

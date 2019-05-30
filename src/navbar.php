@@ -1,3 +1,4 @@
+<?php include_once('header.php'); ?>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <a class="navbar-brand" href="#">CRUD</a>
         <div class="collapse navbar-collapse" id="navbarsDefault">
